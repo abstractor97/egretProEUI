@@ -1,0 +1,11 @@
+{
+  "theme": "resource\\2d\\default.thm.json",
+  "resourcePlugin": {
+    "configs": [
+      {
+        "configPath": "resource/2d/default.D2.res.json",
+        "relativePath": "resource\\"
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+	"version": "1.2.0",
+	"packages": [
+		"basis",
+		"ecs",
+		"core",
+		"engine",
+		"gltf",
+		"render",
+		"webgl",
+		"egret2d",
+		"editor",
+		"pro",
+		"input",
+		"collision",
+		"particle",
+		"behaviour-tree",
+		"inspector",
+		"tween",
+		"audio"
+	],
+	"egretModules": [
+		"egret",
+		"eui",
+		"game",
+		"tween",
+		"assetsmanager"
+	],
+	"currentScene": "assets/scenes/ui/egretUI.scene.json",
+	"engineName": "1.5.0",
+	"targets": [
+		{
+			"name": "wxgame",
+			"projectRoot": "./targets/wxgame/dist",
+			"resourceRoot": "http://10.0.14.249:3002/resource/"
+		},
+		{
+			"name": "web",
+			"projectRoot": "./dist",
+			"packages": {
+				"include": [
+					"v-console"
+				]
+			}
+		}
+	],
+	"defines": {}
+}
