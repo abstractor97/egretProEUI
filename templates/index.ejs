@@ -28,6 +28,8 @@
         var Module = {
             TOTAL_MEMORY: 64 * 1024 * 1024
         };
+        var wx;
+        var resRootUrl = "resource/";  
     </script>
     <script type="text/javascript" src="./libs/imgui/imgui.umd.js"></script>
     <script type="text/javascript" src="./libs/imgui/imgui_impl.umd.js"></script>
@@ -37,7 +39,36 @@
     <script type="text/javascript" src="./libs/md5/md5.js"></script>
     <script type="text/javascript" src="./libs/jszip/jszip.js"></script>
     <script type="text/javascript" src="../libs//socket/socket.js"></script>
-
+   <script>
+        /**
+		 * @private
+		 * 启动心跳计时器。
+		 */
+        function startTicker(ticker) {
+            var requestAnimationFrame = window["requestAnimationFrame"] ||
+                window["webkitRequestAnimationFrame"] ||
+                window["mozRequestAnimationFrame"] ||
+                window["oRequestAnimationFrame"] ||
+                window["msRequestAnimationFrame"];
+            if (!requestAnimationFrame) {
+                requestAnimationFrame = function (callback) {
+                    return window.setTimeout(callback, 1000 / 60);
+                };
+            }
+            requestAnimationFrame(onTick);
+            function onTick() {
+                requestAnimationFrame(onTick);
+                ticker.update();
+            }
+        }
+        //覆盖原生的isNaN()方法实现，在不同浏览器上有2~10倍性能提升。
+        window["isNaN"] = function (value) {
+            value = +value;
+            return value !== value;
+        };
+        egret.web.Html5Capatibility.$init();
+        startTicker(egret.ticker);
+    </script>
 </head>
 
 <body>
